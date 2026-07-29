@@ -177,6 +177,34 @@ def packages_cmd() -> None:
     console.print(get_kb().list_package_summaries())
 
 
+@app.command("ui")
+def ui_cmd(
+    port: int = typer.Option(8501, "--port", "-p"),
+) -> None:
+    """Launch Streamlit ops UI (CRM, handoffs, proposals)."""
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    app_path = Path(__file__).resolve().parent / "ui" / "app.py"
+    console.print(f"[bold]Starting MUPO ops UI[/bold] → http://localhost:{port}")
+    raise SystemExit(
+        subprocess.call(
+            [
+                sys.executable,
+                "-m",
+                "streamlit",
+                "run",
+                str(app_path),
+                "--server.port",
+                str(port),
+                "--browser.gatherUsageStats",
+                "false",
+            ]
+        )
+    )
+
+
 def main() -> None:
     app()
 

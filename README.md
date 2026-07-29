@@ -33,11 +33,10 @@ Works with core deps only (including Python 3.14 for demo/tests):
 cd mupo-sales-team
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -e ".[dev]"
+pip install -e ".[dev,ui]"
 python -m mupo_sales.main demo
 python -m mupo_sales.main dashboard
-python -m mupo_sales.main handoffs
-python -m mupo_sales.main actions
+python -m mupo_sales.main ui          # Streamlit ops UI → http://localhost:8501
 ```
 
 This exercises CRM, dry-run email, proposal generation, and human handoff — without calling an LLM.
@@ -47,13 +46,27 @@ This exercises CRM, dry-run email, proposal generation, and human handoff — wi
 Requires **Python 3.11–3.13** (CrewAI does not support 3.14 yet) and an [xAI API key](https://console.x.ai):
 
 ```powershell
-pip install -e ".[llm]"
+py -3.12 -m venv .venv-llm
+.\.venv-llm\Scripts\Activate.ps1
+pip install -e ".[llm,dev,ui]"
 copy .env.example .env
 # set XAI_API_KEY=...
 python -m mupo_sales.main demo --llm
-python -m mupo_sales.main run -w full_pipeline
+.\scripts\run_llm_demo.ps1
 ```
 
+### Email modes (safe by default)
+
+| Mode | Behavior |
+|------|----------|
+| `dry_run` (default) | Log only — never sends |
+| `gmail` | Gmail API send when live gate open |
+| `instantly` / `smartlead` | Push lead into campaign when live gate open |
+
+**Live send requires all three:** `EMAIL_MODE` = provider, `EMAIL_ALLOW_LIVE=true`, and `DRY_RUN=false`.  
+Anything else is forced dry-run.
+
+Gmail OAuth extras: `pip install -e ".[gmail]"` and set `GMAIL_CREDENTIALS_PATH`.
 ---
 
 ## Architecture
@@ -98,6 +111,7 @@ python -m mupo_sales.main run -w full_pipeline
 | `handoffs` | Open human tickets |
 | `actions` | Action log tail |
 | `packages` | Rate-card summary |
+| `ui` | Streamlit ops UI (CRM / handoffs / proposals) |
 
 Workflows: `full_pipeline` · `outreach_only` · `proposal_only` · `followup` · `content` · `qualify`
 

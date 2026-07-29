@@ -183,6 +183,18 @@ class CRMStore:
             tickets = [t for t in tickets if t.status == status]
         return tickets
 
+    def resolve_handoff(self, handoff_id: str, note: str | None = None) -> HandoffTicket:
+        with self._lock:
+            rows = self._read(self._files["handoffs"])
+            for r in rows:
+                if r.get("id") == handoff_id:
+                    r["status"] = "resolved"
+                    if note:
+                        r["summary"] = (r.get("summary") or "") + f"\n[resolved] {note}"
+                    self._write(self._files["handoffs"], rows)
+                    return HandoffTicket.model_validate(r)
+        raise KeyError(f"Handoff not found: {handoff_id}")
+
     # --- Reporting ---
     def pipeline_summary(self) -> dict[str, Any]:
         deals = self.list_deals()

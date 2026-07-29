@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mupo-sales-team"
-version = "0.1.1"
+version = "0.2.0"
 description = "Multi-agent sales team for MUPO Entertainment (MUPO TV)"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -33,10 +33,16 @@ llm = [
   "openai>=1.55.0",
   "litellm>=1.52.0",
 ]
+ui = ["streamlit>=1.32.0"]
+gmail = [
+  "google-api-python-client>=2.120.0",
+  "google-auth-httplib2>=0.2.0",
+  "google-auth-oauthlib>=1.2.0",
+]
 vector = ["chromadb>=0.5.0"]
 dev = ["pytest>=8.3.0", "pytest-asyncio>=0.24.0"]
 all = [
-  "mupo-sales-team[llm,vector,dev]",
+  "mupo-sales-team[llm,ui,gmail,vector,dev]",
 ]
 
 [project.urls]

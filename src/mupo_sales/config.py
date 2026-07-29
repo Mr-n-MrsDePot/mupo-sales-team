@@ -57,9 +57,20 @@ class Settings(BaseSettings):
 
     # Email
     email_mode: str = Field(default="dry_run", alias="EMAIL_MODE")
+    # Hard safety gate: even if EMAIL_MODE=gmail|instantly|smartlead, live send requires this True
+    # AND dry_run=False. Default False keeps every environment safe.
+    email_allow_live: bool = Field(default=False, alias="EMAIL_ALLOW_LIVE")
     gmail_credentials_path: str = Field(default="", alias="GMAIL_CREDENTIALS_PATH")
+    gmail_token_path: str = Field(default="", alias="GMAIL_TOKEN_PATH")
+    gmail_user: str = Field(default="", alias="GMAIL_USER")
     instantly_api_key: str = Field(default="", alias="INSTANTLY_API_KEY")
+    instantly_campaign_id: str = Field(default="", alias="INSTANTLY_CAMPAIGN_ID")
+    instantly_api_base: str = Field(
+        default="https://api.instantly.ai",
+        alias="INSTANTLY_API_BASE",
+    )
     smartlead_api_key: str = Field(default="", alias="SMARTLEAD_API_KEY")
+    smartlead_campaign_id: str = Field(default="", alias="SMARTLEAD_CAMPAIGN_ID")
     linkedin_mode: str = Field(default="draft_only", alias="LINKEDIN_MODE")
 
     # Limits
