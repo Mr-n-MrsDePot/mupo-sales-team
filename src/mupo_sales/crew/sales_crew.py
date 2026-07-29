@@ -14,7 +14,6 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from mupo_sales.agents.factory import build_agents
 from mupo_sales.config import get_settings
 from mupo_sales.crm.store import get_crm
 from mupo_sales.memory.knowledge import SharedMemory, get_kb
@@ -32,7 +31,12 @@ def build_sales_crew(
     try:
         from crewai import Crew, Process, Task
     except ImportError as e:
-        raise ImportError("Install crewai: pip install -r requirements.txt") from e
+        raise ImportError(
+            "Install LLM stack: pip install -e \".[llm]\" (Python 3.11–3.13 recommended)"
+        ) from e
+
+    # Lazy import so offline demo/tests work without crewai/openai
+    from mupo_sales.agents.factory import build_agents
 
     agents = build_agents(verbose=verbose)
     inputs = inputs or {}

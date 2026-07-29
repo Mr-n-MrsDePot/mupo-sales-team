@@ -4,16 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mupo-sales-team"
-version = "0.1.0"
+version = "0.1.1"
 description = "Multi-agent sales team for MUPO Entertainment (MUPO TV)"
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [{ name = "MUPO Entertainment" }]
+license = { text = "MIT" }
+keywords = ["multi-agent", "crewai", "sales", "xai", "grok", "crm"]
 dependencies = [
-  "crewai>=0.86.0",
-  "crewai-tools>=0.17.0",
-  "openai>=1.55.0",
-  "litellm>=1.52.0",
   "pydantic>=2.9.0",
   "pydantic-settings>=2.6.0",
   "python-dotenv>=1.0.1",
@@ -28,8 +26,23 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Live multi-agent runs (CrewAI + xAI). Prefer Python 3.11–3.13.
+llm = [
+  "crewai>=0.86.0",
+  "crewai-tools>=0.17.0",
+  "openai>=1.55.0",
+  "litellm>=1.52.0",
+]
 vector = ["chromadb>=0.5.0"]
 dev = ["pytest>=8.3.0", "pytest-asyncio>=0.24.0"]
+all = [
+  "mupo-sales-team[llm,vector,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/Mr-n-MrsDePot/mupo-sales-team"
+Repository = "https://github.com/Mr-n-MrsDePot/mupo-sales-team"
+Issues = "https://github.com/Mr-n-MrsDePot/mupo-sales-team/issues"
 
 [project.scripts]
 mupo-sales = "mupo_sales.main:main"

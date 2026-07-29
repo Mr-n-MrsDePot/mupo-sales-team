@@ -69,7 +69,12 @@ def demo_cmd(
         if not settings.xai_api_key:
             console.print("[red]XAI_API_KEY missing. Copy .env.example → .env and set your key.[/red]")
             raise typer.Exit(1)
-        from mupo_sales.crew.sales_crew import run_workflow
+        try:
+            from mupo_sales.crew.sales_crew import run_workflow
+        except ImportError as e:
+            console.print(f"[red]LLM stack missing: {e}[/red]")
+            console.print("Install with Python 3.11–3.13: [bold]pip install -e \".[llm]\"[/bold]")
+            raise typer.Exit(1) from e
 
         out = run_workflow(
             "full_pipeline",
@@ -111,7 +116,12 @@ def run_cmd(
         "prospect_message": prospect_message,
     }.items() if v is not None}
 
-    from mupo_sales.crew.sales_crew import run_workflow
+    try:
+        from mupo_sales.crew.sales_crew import run_workflow
+    except ImportError as e:
+        console.print(f"[red]LLM stack missing: {e}[/red]")
+        console.print("Install with Python 3.11–3.13: [bold]pip install -e \".[llm]\"[/bold]")
+        raise typer.Exit(1) from e
 
     console.print(f"[bold]Workflow:[/bold] {workflow}  inputs={inputs}")
     result = run_workflow(workflow, **inputs)
