@@ -1,0 +1,30 @@
+product_id: magazine_ad
+channel: email
+max_touches: 3
+cadence_days: [0, 5, 12]
+
+touches:
+  - id: 1
+    name: "Magazine placement"
+    subject_templates:
+      - "Magazine feature idea for {{company}}"
+    body_framework: |
+      Lifestyle adjacency. Ranges $500–$8k by unit.
+      Offer rate card overview after interest.
+    cta: "Want issue options and unit sizes?"
+
+  - id: 2
+    name: "Units"
+    subject_templates:
+      - "Quarter / half / premium units"
+    body_framework: |
+      Outline unit ladder without overselling circulation numbers unless verified.
+    cta: "Which unit is closest to your budget band?"
+
+  - id: 3
+    name: "Close loop"
+    subject_templates:
+      - "Any interest in the next issue?"
+    body_framework: |
+      Soft close; offer to send media kit placeholder after human approval of kit contents.
+    cta: "Happy to reconnect before the next close date."

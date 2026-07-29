@@ -1,0 +1,39 @@
+product_id: artist_dev
+channel: email
+max_touches: 4
+cadence_days: [0, 4, 9, 16]
+
+touches:
+  - id: 1
+    name: "Development intro"
+    subject_templates:
+      - "Artist development pathway — {{artist_name}}"
+    body_framework: |
+      Compliment specific craft (must be real from research).
+      Position packages as development + media pathway, not a record deal.
+      Ranges $2k–$25k.
+    cta: "Open to a short creative fit call?"
+
+  - id: 2
+    name: "Tier clarity"
+    subject_templates:
+      - "Launch vs Accelerate vs Signature"
+    body_framework: |
+      Explain tiers honestly. No charting guarantees.
+    cta: "Where are you in your career arc right now?"
+
+  - id: 3
+    name: "Media pathway"
+    subject_templates:
+      - "How MUPO media can support your runway"
+    body_framework: |
+      Feature consideration pathway — not guaranteed placement.
+    cta: "Want a sample development roadmap outline?"
+
+  - id: 4
+    name: "Breakup"
+    subject_templates:
+      - "Closing the loop, {{first_name}}"
+    body_framework: |
+      Respectful exit.
+    cta: "Door stays open when the timing is right."

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mupo-sales-team"
+version = "0.1.0"
+description = "Multi-agent sales team for MUPO Entertainment (MUPO TV)"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "MUPO Entertainment" }]
+dependencies = [
+  "crewai>=0.86.0",
+  "crewai-tools>=0.17.0",
+  "openai>=1.55.0",
+  "litellm>=1.52.0",
+  "pydantic>=2.9.0",
+  "pydantic-settings>=2.6.0",
+  "python-dotenv>=1.0.1",
+  "pyyaml>=6.0.2",
+  "httpx>=0.27.0",
+  "rich>=13.9.0",
+  "typer>=0.12.5",
+  "tabulate>=0.9.0",
+  "tenacity>=9.0.0",
+  "python-dateutil>=2.9.0",
+  "jinja2>=3.1.4",
+]
+
+[project.optional-dependencies]
+vector = ["chromadb>=0.5.0"]
+dev = ["pytest>=8.3.0", "pytest-asyncio>=0.24.0"]
+
+[project.scripts]
+mupo-sales = "mupo_sales.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

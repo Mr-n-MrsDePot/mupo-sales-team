@@ -1,0 +1,42 @@
+# Sequence: TV Membership — own show on MUPO TV
+product_id: tv_membership
+channel: email
+max_touches: 4
+cadence_days: [0, 3, 7, 14]
+
+touches:
+  - id: 1
+    name: "Creator opportunity"
+    subject_templates:
+      - "{{first_name}}, ever considered your own show?"
+      - "MUPO TV membership — pathway for {{niche}}"
+    body_framework: |
+      Acknowledge their expertise/content niche.
+      Introduce membership as structured path to host a format on MUPO TV.
+      Be clear: not a guaranteed primetime slot — a real development pathway.
+    cta: "Want the membership overview for {{niche}} creators?"
+
+  - id: 2
+    name: "Clarify what's included"
+    subject_templates:
+      - "What the MUPO TV membership actually includes"
+    body_framework: |
+      Outline Creator / Host / Studio tiers at a high level.
+      Price range $1k–$5k. Invite questions.
+    cta: "Which tier sounds closest to where you are?"
+
+  - id: 3
+    name: "Objection pre-handle"
+    subject_templates:
+      - "Is this vanity TV? (honest answer)"
+    body_framework: |
+      Address vanity-TV concern. Focus on authentic formats + audience alignment.
+    cta: "If useful, I can draft a sample show concept outline from your bio."
+
+  - id: 4
+    name: "Breakup"
+    subject_templates:
+      - "Closing the loop on MUPO TV membership"
+    body_framework: |
+      Friendly close. Offer re-engage later.
+    cta: "Reply anytime if the timing improves."

@@ -1,0 +1,54 @@
+# Cold + follow-up sequence: TV Sponsorship / High-ticket advertising
+product_id: tv_sponsorship
+channel: email
+max_touches: 4
+cadence_days: [0, 3, 7, 14]
+
+touches:
+  - id: 1
+    name: "Value-first intro"
+    subject_templates:
+      - "{{company}} × MUPO TV — partnership idea"
+      - "Quick idea for {{company}}'s next brand moment"
+    body_framework: |
+      Hook with 1–2 specific facts about their brand/campaign.
+      Position MUPO TV as entertainment adjacency for brand storytelling.
+      Offer discovery call — no fake metrics.
+      Soft CTA: 15-min fit check.
+    cta: "Open to a short discovery call this week?"
+
+  - id: 2
+    name: "Different angle"
+    subject_templates:
+      - "Re: {{company}} × MUPO TV"
+      - "Another angle for {{first_name}}"
+    body_framework: |
+      Reference prior note briefly.
+      Share a package tier concept (Showcase vs Premier) without hard sell.
+      Mention magazine/digital companion as optional add.
+    cta: "Worth a conversation, or should I close the loop?"
+
+  - id: 3
+    name: "Social proof process (not fake metrics)"
+    subject_templates:
+      - "How MUPO TV partnerships usually work"
+    body_framework: |
+      Explain process: discovery → custom proposal → human partnership lead.
+      Emphasize customization and honesty on inventory.
+    cta: "If timing is better later, happy to reconnect in {{quarter}}."
+
+  - id: 4
+    name: "Breakup / nurture"
+    subject_templates:
+      - "Should I close your file, {{first_name}}?"
+    body_framework: |
+      Polite breakup. Leave door open. No guilt.
+    cta: "Reply 'later' and I'll park this for a future check-in."
+
+linkedin_framework:
+  connection_note: |
+    Hi {{first_name}} — I work partnerships for MUPO TV (entertainment media).
+    Thought there might be a fit with {{company}}'s brand storytelling. No pitch in the note — happy to share context if useful.
+  message_1: |
+    Thanks for connecting. MUPO TV works with brands on sponsorships and commercial integrations.
+    Curious whether {{company}} is exploring entertainment media this year?

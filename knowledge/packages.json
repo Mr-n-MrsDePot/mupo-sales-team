@@ -1,0 +1,246 @@
+{
+  "version": "1.0.0",
+  "currency": "USD",
+  "disclaimer": "All package details are starting frameworks. Final pricing, inventory, and placement dates require human confirmation. Do not invent viewership or ROI figures beyond verified_metrics.",
+  "verified_metrics": {
+    "note": "Only these metrics may be cited. If empty or marked TBD, agents must say metrics are shared on discovery calls after NDA/context.",
+    "audience": {
+      "description": "Audience profile and reach figures are provided during qualified discovery — not in cold outreach.",
+      "public_claim_allowed": false,
+      "safe_language": "We share detailed audience and placement data with qualified partners on a discovery call."
+    },
+    "case_studies": []
+  },
+  "packages": [
+    {
+      "id": "tv_sponsorship",
+      "name": "TV Advertising & Sponsorship Packages",
+      "category": "sponsorship",
+      "price_min": 10000,
+      "price_max": 80000,
+      "ticket_class": "high",
+      "requires_human_close": true,
+      "tiers": [
+        {
+          "name": "Showcase Sponsor",
+          "price_from": 10000,
+          "price_to": 25000,
+          "includes": [
+            "Category-aligned show sponsorship integration",
+            "On-air brand mentions as inventory allows",
+            "Social cross-promotion package (platform-dependent)",
+            "Quarterly performance recap (placement-based, not guaranteed ROI)"
+          ]
+        },
+        {
+          "name": "Premier Partner",
+          "price_from": 25000,
+          "price_to": 50000,
+          "includes": [
+            "Multi-show or seasonal sponsorship footprint",
+            "Custom creative collaboration with MUPO production",
+            "Magazine + digital companion placements",
+            "Priority inventory windows (subject to availability)"
+          ]
+        },
+        {
+          "name": "Title / Franchise Partner",
+          "price_from": 50000,
+          "price_to": 80000,
+          "includes": [
+            "Flagship association with select MUPO TV properties",
+            "Co-branded content opportunities",
+            "Expanded multi-channel package",
+            "Dedicated partnership manager (human)"
+          ]
+        }
+      ],
+      "ideal_icp": [
+        "Consumer brands seeking entertainment adjacency",
+        "Agencies buying for clients in lifestyle, beauty, CPG, auto, fintech",
+        "Regional brands scaling into TV"
+      ],
+      "objections": {
+        "too_expensive": "We structure packages to match goals — mid-tier Showcase often tests fit before Premier.",
+        "need_metrics": "We share placement and audience context on a qualified discovery call; we do not over-promise ROI.",
+        "never_heard_of_you": "MUPO TV is founder-led entertainment media — happy to share show formats and partner process."
+      }
+    },
+    {
+      "id": "commercial_30s",
+      "name": "30-Second Commercial Spots",
+      "category": "commercial",
+      "price_min": 2500,
+      "price_max": 15000,
+      "ticket_class": "mid_high",
+      "requires_human_close": true,
+      "tiers": [
+        {
+          "name": "Spot Flight — Starter",
+          "price_from": 2500,
+          "price_to": 5000,
+          "includes": [
+            "Limited 30s spot flight on selected programming",
+            "Basic trafficking support",
+            "Post-flight placement summary"
+          ]
+        },
+        {
+          "name": "Spot Flight — Growth",
+          "price_from": 5000,
+          "price_to": 10000,
+          "includes": [
+            "Expanded rotation across compatible shows",
+            "Creative guidelines checklist",
+            "Optional light social mention add-on"
+          ]
+        },
+        {
+          "name": "Spot Flight — Impact",
+          "price_from": 10000,
+          "price_to": 15000,
+          "includes": [
+            "Premium daypart / franchise-adjacent inventory (as available)",
+            "Multi-week flight planning",
+            "Human media planning support"
+          ]
+        }
+      ],
+      "ideal_icp": [
+        "DTC brands testing TV",
+        "Local/regional service businesses",
+        "Event promoters"
+      ],
+      "notes": "Exact CPMs and air times confirmed by human inventory owner only."
+    },
+    {
+      "id": "tv_membership",
+      "name": "TV Membership — Your Own Show on MUPO TV",
+      "category": "membership",
+      "price_min": 1000,
+      "price_max": 5000,
+      "ticket_class": "mid",
+      "requires_human_close": false,
+      "tiers": [
+        {
+          "name": "Creator Membership",
+          "price_from": 1000,
+          "price_to": 2000,
+          "includes": [
+            "Pathway to host a show format on MUPO TV",
+            "Onboarding + format coaching session",
+            "Brand guidelines and production checklist"
+          ]
+        },
+        {
+          "name": "Host Membership",
+          "price_from": 2000,
+          "price_to": 3500,
+          "includes": [
+            "Expanded production support package",
+            "Promo assets for personal channels",
+            "Priority scheduling guidance"
+          ]
+        },
+        {
+          "name": "Studio Membership",
+          "price_from": 3500,
+          "price_to": 5000,
+          "includes": [
+            "Premium membership tier with deeper production collaboration",
+            "Multi-episode planning workshop",
+            "Cross-promo considerations within MUPO network"
+          ]
+        }
+      ],
+      "ideal_icp": [
+        "Coaches and consultants with a defined niche",
+        "Entertainers and podcast hosts wanting TV extension",
+        "Entrepreneurs building personal media brands"
+      ],
+      "objections": {
+        "what_do_i_get": "Membership is a structured path to develop and present your show concept on MUPO TV — not a guaranteed primetime slot.",
+        "is_this_vanity_tv": "We focus on authentic formats and partner hosts who bring a real audience or expertise."
+      }
+    },
+    {
+      "id": "magazine_ad",
+      "name": "Magazine Advertising",
+      "category": "print_digital_mag",
+      "price_min": 500,
+      "price_max": 8000,
+      "ticket_class": "mid",
+      "requires_human_close": false,
+      "tiers": [
+        {
+          "name": "Quarter Page / Digital Feature",
+          "price_from": 500,
+          "price_to": 1500,
+          "includes": ["Standard ad unit", "Issue inclusion", "Digital companion option when available"]
+        },
+        {
+          "name": "Half / Full Page",
+          "price_from": 1500,
+          "price_to": 4000,
+          "includes": ["Larger print footprint", "Preferred placement request", "Social teaser option"]
+        },
+        {
+          "name": "Cover / Premium Spread",
+          "price_from": 4000,
+          "price_to": 8000,
+          "includes": ["Premium inventory", "Editorial adjacency discussion", "Multi-issue discount consideration"]
+        }
+      ],
+      "ideal_icp": ["Lifestyle brands", "Beauty & fashion", "Hospitality", "Local luxury services"]
+    },
+    {
+      "id": "artist_dev",
+      "name": "Artist Development Packages",
+      "category": "artist",
+      "price_min": 2000,
+      "price_max": 25000,
+      "ticket_class": "mid_high",
+      "requires_human_close": true,
+      "tiers": [
+        {
+          "name": "Launch",
+          "price_from": 2000,
+          "price_to": 6000,
+          "includes": [
+            "Career positioning session",
+            "Content / branding starter plan",
+            "Introduction to MUPO media opportunities"
+          ]
+        },
+        {
+          "name": "Accelerate",
+          "price_from": 6000,
+          "price_to": 15000,
+          "includes": [
+            "Multi-touch development roadmap",
+            "Media training + performance guidance",
+            "Feature consideration pathway on MUPO properties"
+          ]
+        },
+        {
+          "name": "Signature",
+          "price_from": 15000,
+          "price_to": 25000,
+          "includes": [
+            "High-touch development partnership",
+            "Cross-platform visibility plan",
+            "Human A&R-style advisory cadence"
+          ]
+        }
+      ],
+      "ideal_icp": ["Emerging musicians", "Performers", "Talent seeking structured media pathway"],
+      "notes": "Artist packages are development services — not record deals or guaranteed charting."
+    }
+  ],
+  "rate_card_notes": [
+    "Prices are ranges, not fixed quotes.",
+    "Custom packages may combine TV + magazine + membership.",
+    "Inventory is limited; agents must not promise specific air dates.",
+    "Proposals over $5,000 auto-flag human handoff."
+  ]
+}

@@ -1,0 +1,40 @@
+product_id: commercial_30s
+channel: email
+max_touches: 4
+cadence_days: [0, 3, 7, 14]
+
+touches:
+  - id: 1
+    name: "Spot flight intro"
+    subject_templates:
+      - "30s spots for {{company}} on MUPO TV"
+    body_framework: |
+      Position 30-second commercial flights as a concrete TV test.
+      Ranges $2.5k–$15k depending on flight and inventory.
+      No CPM invention.
+    cta: "Open to a quick inventory fit check?"
+
+  - id: 2
+    name: "Flight options"
+    subject_templates:
+      - "Starter vs Growth spot flights"
+    body_framework: |
+      Contrast Starter / Growth / Impact at a conceptual level.
+      Creative guidelines exist; production of ad creative is usually client-side unless scoped.
+    cta: "Any campaign window we should aim for?"
+
+  - id: 3
+    name: "Process"
+    subject_templates:
+      - "How a MUPO TV spot flight works"
+    body_framework: |
+      Process: goals → available inventory (human confirmed) → proposal → trafficking.
+    cta: "Shall I introduce you to our media lead for dates?"
+
+  - id: 4
+    name: "Breakup"
+    subject_templates:
+      - "Park {{company}}'s spot conversation?"
+    body_framework: |
+      Polite close.
+    cta: "Reply 'later' to revisit next quarter."

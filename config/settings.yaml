@@ -1,0 +1,134 @@
+# MUPO Entertainment — Multi-Agent Sales Team Configuration
+# Business rules, pipeline stages, packages, rate limits
+
+company:
+  legal_name: "MUPO Entertainment"
+  brand: "MUPO TV"
+  founder: "Michele Mupo"
+  tagline: "Entertainment that connects brands, artists, and audiences"
+  website: "https://mupotv.example"
+  verticals:
+    - television
+    - digital media
+    - advertising
+    - artist development
+    - magazine publishing
+
+# Commission-style operation: agents generate pipeline; humans close high-ticket
+business_rules:
+  deal_handoff_threshold_usd: 5000
+  strong_buying_signals:
+    - "send proposal"
+    - "ready to buy"
+    - "budget approved"
+    - "decision maker available"
+    - "want to schedule call"
+    - "send contract"
+    - "invoice"
+    - "purchase order"
+  forbidden_claims:
+    - Never invent viewership numbers, Nielsen ratings, or audience demographics.
+    - Never guarantee ROI, conversions, or sales outcomes.
+    - Never claim celebrity endorsements without verified KB entries.
+    - Never fabricate past clients or case studies.
+    - Never promise placement dates not confirmed by humans.
+    - Never send legally binding contracts without human approval.
+  compliance:
+    can_spam: true
+    always_include_unsubscribe: true
+    no_harassment_followups: true
+    max_followups_without_reply: 4
+    quiet_hours_local: "21:00-08:00"
+    require_truthful_affiliation: true
+
+pipeline_stages:
+  - new
+  - researched
+  - outreach_sent
+  - replied
+  - qualified
+  - discovery
+  - proposal_sent
+  - negotiation
+  - human_handoff
+  - won
+  - lost
+  - nurture
+
+products:
+  - id: tv_sponsorship
+    name: "TV Advertising & Sponsorship Packages"
+    price_min: 10000
+    price_max: 80000
+    ticket: high
+    requires_human: true
+  - id: commercial_30s
+    name: "30-Second Commercial Spots"
+    price_min: 2500
+    price_max: 15000
+    ticket: mid_high
+    requires_human: true
+  - id: tv_membership
+    name: "TV Membership — Your Own Show on MUPO TV"
+    price_min: 1000
+    price_max: 5000
+    ticket: mid
+    requires_human: false  # still notify on strong signal
+  - id: magazine_ad
+    name: "Magazine Advertising"
+    price_min: 500
+    price_max: 8000
+    ticket: mid
+    requires_human: false
+  - id: artist_dev
+    name: "Artist Development Packages"
+    price_min: 2000
+    price_max: 25000
+    ticket: mid_high
+    requires_human: true
+
+rate_limits:
+  max_outreach_per_day: 40
+  max_linkedin_drafts_per_day: 25
+  max_llm_calls_per_run: 50
+  agent_timeout_seconds: 120
+  proposal_regenerations_per_deal: 3
+
+llm:
+  primary:
+    provider: xai
+    model: grok-4.5
+    temperature: 0.4
+    max_tokens: 4096
+  fallback:
+    provider: none
+    model: claude-3-5-sonnet-latest
+    temperature: 0.3
+
+agents:
+  scout:
+    max_leads_per_run: 10
+  outreach:
+    personalization_min_facts: 2
+  closer:
+    qualification_framework: BANT  # Budget, Authority, Need, Timeline
+  proposal:
+    include_rate_card: true
+    watermark_draft: true
+  followup:
+    sequence_days: [3, 7, 14, 21]
+  crm:
+    log_every_action: true
+  content:
+    brand_voice: "professional, warm, entertainment-industry confident"
+
+human_handoff:
+  channels:
+    - log
+    - email_placeholder
+  notify_on:
+    - deal_over_threshold
+    - strong_buying_signal
+    - legal_or_contract_request
+    - complaint_or_compliance_risk
+    - agent_uncertainty
